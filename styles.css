@@ -3,7 +3,7 @@ body{
     /* background-image: url('weather.jpg') ; */
     font-family: 'Poppins', sans-serif;
     /* Location of the image */
-  background-image: url(bgweather.jpg);
+/*   background-image: url(bgweather.jpg); */
   
   /* Background image is centered vertically and horizontally at all times */
   background-position: center center;
