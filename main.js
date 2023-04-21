@@ -40,7 +40,7 @@ $(document).ready(function () {
   })
   .catch(error => {
     if (error.message.includes('404')) {
-      alert('Page not found!');
+      alert('City doesn’t exist :( !');
     } else {
       console.error('Error occurred:', error);
     }
