@@ -29,6 +29,12 @@ $(document).ready(function () {
                 $('.feels').html(`${data.main.feels_like}°`)
 
             })
+         .catch(error => {
+    if (error.message.includes('404')) {
+      alert('City not found!');
+    } else {
+      console.error('Error occurred:', error);
+    }
     })
 });
       
