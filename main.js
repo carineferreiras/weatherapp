@@ -29,12 +29,22 @@ $(document).ready(function () {
                 $('.feels').html(`${data.main.feels_like}°`)
 
             })
-         .catch(error => {
+         
+    })
+      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('HTTP error, status = ' + response.status);
+    }
+    // process the response if no error
+    console.log('Response received:', response);
+  })
+  .catch(error => {
     if (error.message.includes('404')) {
-      alert('City not found!');
+      alert('Page not found!');
     } else {
       console.error('Error occurred:', error);
     }
-    })
+  });
 });
       
