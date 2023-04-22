@@ -1,14 +1,12 @@
+
 $(document).ready(function () {
     var monthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
-
-
     function dateFormat2(d) {
         var t = new Date(d);
         return t.getDate() + ' ' + monthShortNames[t.getMonth()] + ', ' + t.getFullYear();
     }
-
     $('.date').html(dateFormat2(new Date()))
     let form = $('#myForm')
     form.on('submit', (e) => {
@@ -29,9 +27,7 @@ $(document).ready(function () {
                 $('.feels').html(`${data.main.feels_like}°`)
 
             })
-         
-    })
-      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
   .then(response => {
     if (!response.ok) {
       throw new Error('HTTP error, status = ' + response.status);
@@ -46,5 +42,6 @@ $(document).ready(function () {
       console.error('Error occurred:', error);
     }
   });
+
+    })
 });
-      
