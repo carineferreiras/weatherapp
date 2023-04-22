@@ -2,17 +2,20 @@ $(document).ready(function () {
     var monthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
+
+
     function dateFormat2(d) {
         var t = new Date(d);
         return t.getDate() + ' ' + monthShortNames[t.getMonth()] + ', ' + t.getFullYear();
     }
+
     $('.date').html(dateFormat2(new Date()))
     let form = $('#myForm')
     form.on('submit', (e) => {
         e.preventDefault()
         let city = $('#city_name').val();
         console.log(city)
-        fetch("https://api.openweathermap.org/data/2.5/weather?id={city}&appid={53903773ef1bc3431b2206502b71d875")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
             .then((result) => result.json())
             .then((data) => {
                 console.log(data)
@@ -26,22 +29,6 @@ $(document).ready(function () {
                 $('.feels').html(`${data.main.feels_like}°`)
 
             })
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('HTTP error, status = ' + response.status);
-    }
-    // process the response if no error
-    console.log('Response received:', response);
-  })
-  .catch(error => {
-    if (error.message.includes('404')) {
-      alert('Page not found!');
-    } else {
-      console.error('Error occurred:', error);
-    }
-  });
-
     })
 });
-});
+      
