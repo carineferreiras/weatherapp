@@ -1,15 +1,11 @@
-
 $(document).ready(function () {
     var monthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
-
-
     function dateFormat2(d) {
         var t = new Date(d);
         return t.getDate() + ' ' + monthShortNames[t.getMonth()] + ', ' + t.getFullYear();
     }
-
     $('.date').html(dateFormat2(new Date()))
     let form = $('#myForm')
     form.on('submit', (e) => {
@@ -28,7 +24,7 @@ $(document).ready(function () {
                 $('.title_temp').html(` ${data.main.temp}°`)
                 $('.place').html(`${data.name}`)
                 $('.feels').html(`${data.main.feels_like}°`)
-            
+
             })
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cb52732cf0e4d3f5a26a051fd79856bf&units=metric")
   .then(response => {
@@ -40,7 +36,7 @@ $(document).ready(function () {
   })
   .catch(error => {
     if (error.message.includes('404')) {
-      alert('City not found :(!');
+      alert('Page not found!');
     } else {
       console.error('Error occurred:', error);
     }
@@ -49,6 +45,3 @@ $(document).ready(function () {
     })
 });
 });
-
-
-
