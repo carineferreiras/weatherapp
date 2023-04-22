@@ -12,7 +12,7 @@ $(document).ready(function () {
         e.preventDefault()
         let city = $('#city_name').val();
         console.log(city)
-        fetch("https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={53903773ef1bc3431b2206502b71d875")
+        fetch("https://api.openweathermap.org/data/2.5/weather?id={city}&appid={53903773ef1bc3431b2206502b71d875")
             .then((result) => result.json())
             .then((data) => {
                 console.log(data)
